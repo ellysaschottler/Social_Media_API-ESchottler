@@ -24,7 +24,7 @@ const userSchema = new Schema(
     friends: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Friends',
+            ref: 'User',
         },
     ],
   },
@@ -36,14 +36,14 @@ const userSchema = new Schema(
   }
 );
 
-// Create a virtual property `commentCount` that gets the amount of comments per user
+// virtual to give friends count
 userSchema
   .virtual('friendCount')
   // Getter
   .get(function () {
     return this.friends.length;
   })
-// to do: verify friends.length above is correct
+
 
 
 // Initialize our User model
