@@ -1,0 +1,1 @@
+// to do, add all the routes we create in thoughtController.js

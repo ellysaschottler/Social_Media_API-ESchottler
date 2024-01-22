@@ -1,7 +1,27 @@
 const { Schema, model } = require('mongoose');
 
-// Schema to create Post model
-const postSchema = new Schema(
+
+const reactionSchema = new mongoose.Schema({
+    reactionID: mongoose.ObjectId,
+//to do, verify above:  Use Mongoose's ObjectId data type, Default value is set to a new ObjectId
+    reactionBody:{
+        type: String,
+        required: true,
+        maxLength: 280,
+    },
+    username: {
+        type: String,
+        required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+// to do :use a getter method to format the timestamp on query   
+    }
+})
+
+// Schema to create Thought model
+const thoughtSchema = new mongoose.Schema(
   {
     thoughtText: {
         type: String,
@@ -18,28 +38,7 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    reactions: [
-        {
-            reactionID: mongoose.ObjectId,
-//to do, verify above:  Use Mongoose's ObjectId data type, Default value is set to a new ObjectId
-          
-            reactionBody:{
-                type: String,
-                required: true,
-                maxLength: 280,
-            },
-            username: {
-                type: String,
-                required: true,
-            },
-            createdAt: {
-                type: Date,
-                default: Date.now,
- // to do :use a getter method to format the timestamp on query   
-            }
-        },
-    ],
-
+    reactions: [reactionSchema],
   },
   {
     toJSON: {
@@ -59,6 +58,6 @@ thoughtSchema
 // to do: verify reactions.length above is correct
 
 // Initialize our Post model
-const Post = model('post', postSchema);
+const Thought = model('thought', postSchema);
 
-module.exports = Post;
+module.exports = Thought;
