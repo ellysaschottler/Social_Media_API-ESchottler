@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 
-const reactionSchema = new mongoose.Schema({
-    reactionID: mongoose.ObjectId,
+const reactionSchema = new Schema({
+    reactionID: Schema.Types.ObjectId,
 //to do, verify above:  Use Mongoose's ObjectId data type, Default value is set to a new ObjectId
     reactionBody:{
         type: String,
@@ -21,7 +21,7 @@ const reactionSchema = new mongoose.Schema({
 })
 
 // Schema to create Thought model
-const thoughtSchema = new mongoose.Schema(
+const thoughtSchema = new Schema(
   {
     thoughtText: {
         type: String,
