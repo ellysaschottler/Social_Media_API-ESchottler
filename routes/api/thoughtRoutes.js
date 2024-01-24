@@ -5,7 +5,7 @@ const {
   getThoughtById,
   getThoughts,
   createThought,
-} = require('../../controllers/postController');
+} = require('../../controllers/thoughtController');
 
 router.route('/').get(getThoughts).post(createThought);
 

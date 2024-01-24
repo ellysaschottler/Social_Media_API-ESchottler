@@ -58,6 +58,6 @@ thoughtSchema
 // to do: verify reactions.length above is correct
 
 // Initialize our Post model
-const Thought = model('thought', postSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
