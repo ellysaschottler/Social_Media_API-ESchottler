@@ -2,7 +2,10 @@ const { Schema, model } = require('mongoose');
 
 
 const reactionSchema = new Schema({
-    reactionID: Schema.Types.ObjectId,
+    reactionID: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
 //to do, verify above:  Use Mongoose's ObjectId data type, Default value is set to a new ObjectId
     reactionBody:{
         type: String,
@@ -16,9 +19,15 @@ const reactionSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-// to do :use a getter method to format the timestamp on query   
+    },
+      toJSON: {
+        virtuals: true,
+      },
+      id: false,
     }
-})
+  );
+// to do :use a getter method to format the timestamp on query  
+
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
