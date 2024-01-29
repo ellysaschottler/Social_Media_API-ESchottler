@@ -12,7 +12,7 @@ const userSchema = new Schema(
         type:String,
         unique: true,
         required: true,
-//to do: Must match a valid email address (look into Mongoose's matching validation)
+        match: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
 
     }, 
     thoughts: [
