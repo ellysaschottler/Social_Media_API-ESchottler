@@ -2,7 +2,7 @@ const {Thought, User} = require('../models');
 
 
 module.exports = {
-// to do : get - to get all thoughts
+//get all thoughts
 async getThoughts(req, res) {
 try {
     const thoughts = await Thought.find();
@@ -12,7 +12,7 @@ try {
 }
 },
 
-// to do : get - to get a single thougth by its _id
+//get a single thought by its _id
 async getThoughtById(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.thoughtId });
@@ -27,7 +27,7 @@ async getThoughtById(req, res) {
     }
   },
 
-// to do : post - to create a new thought (don't forget to push the created thought's _id to the associated user's thoughts array field)
+//create a new thought 
 async createThought(req, res) {
     try {
       const thought = await Thought.create(req.body);
@@ -49,7 +49,7 @@ async createThought(req, res) {
       res.status(500).json(err);
     }
   },
-// to do: put - to update a thought by its _id
+//update a thought by its _id
 async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
@@ -70,7 +70,7 @@ async updateThought(req, res) {
   },
 
 
-// to do: delete - to remove a thought by its _id
+//remove a thought by its _id
 async deleteThought(req, res) {
     try {
       const thought = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
@@ -133,10 +133,6 @@ async deleteReaction(req, res) {
     res.status(500).json(err);
   }
 },
-
-
-
-
 
 //closing bracket for exports:
 }
