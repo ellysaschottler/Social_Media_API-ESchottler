@@ -1,11 +1,26 @@
 # Social_Media_API-ESchottler
-A social media API using the MongoDB database and the Mongoose ODM
-GIVEN a social network API
-WHEN I enter the command to invoke the application
-THEN my server is started and the Mongoose models are synced to the MongoDB database
-WHEN I open API GET routes in Insomnia for users and thoughts
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully create, update, and delete users and thoughts in my database
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+
+## Description
+
+A social network API using MongoDB database, Mongoose ODM, and Express.js for routing.
+
+
+## Installation
+
+Start using the api by running 'npm run seed' in the terminal, and start up the API by entering 'run start' in the terminal.
+
+## Usage
+
+View a walkthrough video to see how to use this application: https://drive.google.com/file/d/12p4od29QgGFNBt1zgfuCaYHXd0es1VQI/view
+
+A screenshot of this application in use: ![Screenshot](./assets/social_media_api.png)
+
+## Credits
+
+This project was created with the criteria and guidance from UofM-VIRT-FSF-PT-08-2023-U-LOLC.
+
+
+## License
+N/A
+
+
