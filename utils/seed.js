@@ -1,7 +1,6 @@
 
 const connection = require('../config/connection');
 const User = require('../models/User');
-const testUserData = require('./userseed.json');
 
 connection.on('error', (err) => err);
 
@@ -16,6 +15,10 @@ connection.once('open', async () => {
     {
       "username": "tester2",
       "email": "tester2@test.com"
+    },
+    {
+      "username": "tester3",
+      "email": "tester3@test.com"
     }
   ];
 

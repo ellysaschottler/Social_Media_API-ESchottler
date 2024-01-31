@@ -79,10 +79,10 @@ async deleteUser(req, res) {
     if (!thought) {
       return res
         .status(404)
-        .json({ message: 'No thoughts to delete' });
+        .json({ message: 'User deleted, no thoughts to delete' });
     }
 
-    res.json({ message: 'Thought successfully deleted!' });
+    res.json({ message: 'User successfully deleted!' });
   } catch (err) {
     res.status(500).json(err);
   }
