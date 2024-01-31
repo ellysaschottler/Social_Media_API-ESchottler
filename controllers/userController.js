@@ -61,28 +61,17 @@ async updateUser(req, res) {
 },
 
 
-// to do : delete - to remove a user by its _id, bonus - remove a user's thoughts when deleted
+// delete - to remove a user by its _id, bonus - remove a user's thoughts when deleted
 async deleteUser(req, res) {
   try {
-    const user = await User.findOneAndRemove({ _id: req.params.userId });
+    const user = await User.findOneAndDelete({ _id: req.params.userId });
 
     if (!user) {
-      return res.status(404).json({ message: 'No user with this id!' });
+      return res.status(404).json({ message: 'No user with that ID' });
     }
 
-    const thought = await Thought.findOneAndUpdate(
-      { users: req.params.thoughtId },
-      { $pull: { thoughts: req.params.thoughtId } },
-      { new: true }
-    );
-
-    if (!thought) {
-      return res
-        .status(404)
-        .json({ message: 'User deleted, no thoughts to delete' });
-    }
-
-    res.json({ message: 'User successfully deleted!' });
+    await Thought.deleteMany({ _id: { $in: user.thoughts } });
+    res.json({ message: 'User and associated thoughts deleted!' })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -129,5 +118,4 @@ async removeFriend(req, res) {
   }
 },
 
-//end bracket for exports
 };

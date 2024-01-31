@@ -19,7 +19,7 @@ const reactionSchema = new Schema(
     },
     createdAt: {
         type: Date,
-        default: Date.now,
+        default: Date.now
     },
   },
   {
@@ -29,7 +29,7 @@ const reactionSchema = new Schema(
       id: false,
     }
   );
-// to do :use a getter method to format the timestamp on query  
+
 
 
 // Schema to create Thought model
@@ -42,10 +42,9 @@ const thoughtSchema = new Schema(
         maxLength: 280,
       },
     createdAt: {
-      type: Date,
-      default: Date.now,
-// to do :use a getter method to format the timestamp on query
-    },
+        type: Date,
+        default: Date.now
+      },
     username: {
       type: String,
       required: true,
@@ -67,7 +66,7 @@ thoughtSchema
   .get(function () {
     return this.reactions.length;
   })
-// to do: verify reactions.length above is correct
+
 
 // Initialize our Post model
 const Thought = model('thought', thoughtSchema);

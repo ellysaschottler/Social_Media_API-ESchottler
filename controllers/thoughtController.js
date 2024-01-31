@@ -133,6 +133,4 @@ async deleteReaction(req, res) {
     res.status(500).json(err);
   }
 },
-
-//closing bracket for exports:
 }
