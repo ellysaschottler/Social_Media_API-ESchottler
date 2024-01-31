@@ -8,10 +8,16 @@ connection.on('error', (err) => err);
 connection.once('open', async () => {
   console.log('connected');
 
-    const users = [{
+    const users = [
+      {
       "username": "tester",
       "email": "tester@test.com"
-    }];
+    },
+    {
+      "username": "tester2",
+      "email": "tester2@test.com"
+    }
+  ];
 
   await User.collection.insertMany(users)
   console.table(users);
